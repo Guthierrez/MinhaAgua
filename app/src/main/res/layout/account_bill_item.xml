@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/leakLitemItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp">
+
+    <ImageView
+        android:id="@+id/billItemImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_done" />
+
+    <TextView
+        android:id="@+id/textBillReference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/billItemImage"
+        android:text="Referência"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/billItemImage" />
+
+    <TextView
+        android:id="@+id/textBillValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textBillReference"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/billItemImage"
+        android:text="78.90" />
+
+    <TextView
+        android:id="@+id/textBillConsumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consumo: 1"
+        android:layout_toRightOf="@id/textBillValue"
+        android:layout_marginLeft="100dp"
+        android:src="@drawable/ic_done"
+        android:layout_toEndOf="@id/textBillValue" />
+
+    <View
+        android:id="@+id/taskItemLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textBillValue"
+        android:layout_marginTop="10dp"
+        android:background="#ececec" />
+</RelativeLayout>

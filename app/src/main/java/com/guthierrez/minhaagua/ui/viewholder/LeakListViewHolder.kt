@@ -1,6 +1,7 @@
 package com.guthierrez.minhaagua.ui.viewholder
 
 import android.content.Context
+import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
@@ -11,6 +12,7 @@ import com.guthierrez.minhaagua.listeners.LeakListEventListener
 import com.guthierrez.minhaagua.model.Leak
 import com.guthierrez.minhaagua.model.StepStatus
 import com.guthierrez.minhaagua.util.timestamp
+
 
 class LeakListViewHolder(
         itemView: View,
@@ -29,15 +31,22 @@ class LeakListViewHolder(
         textDescription.text = leak.description
         textLeakDate.text = leak.date!!.timestamp()
 
-        val lastStep = leak.leakSteps.findLast { it.status != null }
-        if (lastStep != null) {
-            when {
-                lastStep.status == StepStatus.EXECUTED -> imageItem.setImageResource(R.drawable.ic_done)
-                lastStep.status == StepStatus.CANCELED -> imageItem.setImageResource(R.drawable.ic_error)
-                lastStep.status == StepStatus.IN_PROGRESS -> imageItem.setImageResource(R.drawable.ic_waiting)
+        val handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                val lastStep = leak.leakSteps.findLast { it.status != null }
+                if (lastStep != null) {
+                    when {
+                        lastStep.status == StepStatus.EXECUTED -> imageItem.setImageResource(R.drawable.ic_done)
+                        lastStep.status == StepStatus.CANCELED -> imageItem.setImageResource(R.drawable.ic_error)
+                        lastStep.status == StepStatus.IN_PROGRESS -> imageItem.setImageResource(R.drawable.ic_waiting)
+                    }
+                } else {
+                    imageItem.setImageResource(R.drawable.ic_waiting)
+                }
+                println("running")
+                handler.postDelayed(this, 1000)
             }
-        } else {
-            imageItem.setImageResource(R.drawable.ic_waiting)
-        }
+        }, 500)
     }
 }

@@ -266,6 +266,7 @@ class LeakFormActivity : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
     }
 
     private fun showFailure(ex: Exception) {
+        ex.printStackTrace()
         Toast.makeText(this, "Ocorreu um erro inesperado.", Toast.LENGTH_LONG).show()
         Log.e(null, "Erro ao salvar vazamento.", ex)
     }

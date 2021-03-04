@@ -11,7 +11,7 @@
         android:id="@+id/leakItemImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_done"
+        android:src="@drawable/ic_waiting"
         android:layout_centerVertical="true"/>
 
     <TextView

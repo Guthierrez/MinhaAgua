@@ -1,6 +1,5 @@
 package com.guthierrez.minhaagua.auth
 
-import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 

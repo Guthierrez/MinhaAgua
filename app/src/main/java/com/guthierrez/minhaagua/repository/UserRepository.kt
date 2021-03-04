@@ -23,6 +23,6 @@ class UserRepository private constructor() {
     }
 
     fun isEmailExistent(email: String): Boolean {
-        return StringUtils.isNotBlank(email)
+        return false
     }
 }
